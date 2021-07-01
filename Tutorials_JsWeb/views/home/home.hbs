@@ -1,0 +1,33 @@
+<main>
+    {{#if user}}
+    <section>
+        <a href="/courses/create" class="btn btn-warning ">Create Course</a>
+        <form class="search float-right" method="GET">
+            <label>Search: </label>
+            <input type="text" name="search">
+            <input type="submit" class="btn btn-info" value="Search">
+        </form>
+    </section>
+    {{else}}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Tutorials</h1>
+            <p class="lead">Start Self-Learning Today: Be the best Developer in the company</p>
+        </div>
+    </div>
+    {{/if}}
+
+    <h1 class="text-center">Courses</h1>
+
+    <div class="container mt-3">
+        <div class="row ">
+            <div class="card-deck d-flex justify-content-center">
+                {{#each courses}}
+                {{> course user=../user}}
+                {{else}}
+                <h3 class="text-center">No courses...</h3>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</main>
